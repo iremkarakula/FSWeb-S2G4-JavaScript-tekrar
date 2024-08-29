@@ -50,8 +50,8 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(r) {
+  return 2 * pi * r;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -64,8 +64,8 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(r, pi) {
+  return pi * Math.pow(r, 2);
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -89,7 +89,10 @@ function CemberinAlani(/* kodlar buraya */) {
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-let ucetambolunenler,
+
+
+
+let ucetambolunenler = [],
   enkucuk,
   enbuyuk,
   ucebolunenlerintoplami,
@@ -99,27 +102,53 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-/* kodlar buraya */
+enkucuk = sayilar[0];
+for(let i=1; i<sayilar.length; i++){
+  if (sayilar[i] < enkucuk){
+    enkucuk = sayilar[i];
+  }
+}
+
+enbuyuk = sayilar[0];
+for(let i=1; i < sayilar.length; i++) {
+  if(sayilar[i] > enbuyuk){
+    enbuyuk = sayilar[i];
+  }
+}
 
 // 3b çözümü:
 
-/* kodlar buraya */
+sayilar.forEach(x => { if (x % 3 === 0) {ucetambolunenler.push(x);}} );
 
 // 3c çözümü:
 
-/* kodlar buraya */
+ucebolunenlerintoplami = ucetambolunenler.reduce((x, y) => x+y, 0);
 
 // 3d çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar = sayilar.filter(x => x<500);
 
 // 3e çözümü
 
-/* kodlar buraya */
+siralisayilar = besyuzdenkucuksayilar.sort((a,b) =>  a - b);
 
 // 3f çözümü
 
-/* kodlar buraya */
+let obj = {};
+let arr = [];
+
+for (let i of sayilar) {
+    if(obj[i] === undefined) {
+        obj[i] = 1;
+    } else { obj[i] += 1; }
+}
+
+for (let i of sayilar) { 
+   if ( obj[i] > 1 && !(arr.includes(`${i} sayısı ${obj[i]} tekrar edilmiştir`))) { 
+       arr.push(`${i} sayısı ${obj[i]} tekrar edilmiştir`);
+}
+}
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
