@@ -38,7 +38,7 @@ const sayilar = [
 //Örneğin çözümü:
 function KareninAlani(kenaruzunlugu) {
   return kenaruzunlugu * kenaruzunlugu;
-}
+} 
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -98,7 +98,7 @@ let ucetambolunenler = [],
   ucebolunenlerintoplami,
   besyuzdenkucuksayilar,
   siralisayilar,
-  tekraredensayilar;
+  tekraredensayilar = [];
 
 // 3a çözümü
 
@@ -134,8 +134,8 @@ siralisayilar = besyuzdenkucuksayilar.sort((a,b) =>  a - b);
 
 // 3f çözümü
 
-let obj = {};
-let arr = [];
+const obj = {};
+
 
 for (let i of sayilar) {
     if(obj[i] === undefined) {
@@ -144,8 +144,8 @@ for (let i of sayilar) {
 }
 
 for (let i of sayilar) { 
-   if ( obj[i] > 1 && !(arr.includes(`${i} sayısı ${obj[i]} tekrar edilmiştir`))) { 
-       arr.push(`${i} sayısı ${obj[i]} tekrar edilmiştir`);
+   if ( obj[i] > 1 && !(tekraredensayilar.includes(`${i} sayısı ${obj[i]} tekrar edilmiştir`))) { 
+    tekraredensayilar.push(`${i} sayısı ${obj[i]} tekrar edilmiştir`);
 }
 }
 
